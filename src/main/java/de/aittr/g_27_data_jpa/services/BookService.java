@@ -18,4 +18,26 @@ public class BookService {
     public List<Book> getAll() {
         return repository.findAll();
     }
+     public Book getById(int id) {
+        return repository.findById(id).orElse(null);
+    }
+    public Book add(Book book) {
+        book.setId(0);
+        return repository.save(book);
+    }
+    public Book update(Book book) {
+        return repository.save(book);
+    }
+
+    public void deleteById(int id) {
+        repository.deleteById(id);
+    }
+
+    public void deleteByName(String name) {
+        repository.deleteByName(name);
+    }
+
+    public int getAverageYear() {
+        return repository.getAverageYear();
+    }
 }
